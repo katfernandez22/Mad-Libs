@@ -1,19 +1,19 @@
-var getStoryButton = document.querySelector("#getStory");
-var resetButton = document.querySelector("#reset");
-var getFormButton = document.querySelector("#getForm");
-var chooseAgain = document.querySelector("#chooseAgain");
+let getStoryButton = document.querySelector("#getStory");
+let resetButton = document.querySelector("#reset");
+let getFormButton = document.querySelector("#getForm");
+let chooseAgain = document.querySelector("#chooseAgain");
 
-var selectStory = document.querySelector("#selectStory");
-var storyForm = document.querySelector("#storyForm");
-var finshedStory = document.querySelector("#finishedStory");
+let selectStory = document.querySelector("#selectStory");
+let storyForm = document.querySelector("#storyForm");
+let finshedStory = document.querySelector("#finishedStory");
 
-var inputs = document.querySelector("#storyForm div");
+let inputs = document.querySelector("#storyForm div");
 
-var chosenStory = document.querySelector("select");
+let chosenStory = document.querySelector("select");
 
-var storyVisible = false;
+let storyVisible = false;
 
-var story = {
+let story = {
   storyOne: [
     [
       "Adjective:",
@@ -88,25 +88,25 @@ resetButton.addEventListener("click", function () {
 
 
 function makeForm() {
-  var storyChoice = story[chosenStory.value][0];
+  let storyChoice = story[chosenStory.value][0];
 
-  for (var i = 0; i < storyChoice.length; i++) {
+  for (let i = 0; i < storyChoice.length; i++) {
     inputs.innerHTML += "<label>" + storyChoice[i] + '<br><input type="text"></label>';
   }
 }
 
 function makeStory() {
-  var wordSlots = document.querySelectorAll(story[chosenStory.value][2]);
-  var inputWords = document.querySelectorAll("input");
+  let wordSlots = document.querySelectorAll(story[chosenStory.value][2]);
+  let inputWords = document.querySelectorAll("input");
 
 
-  for (var i = 0; i < wordSlots.length; i++) {
+  for (let i = 0; i < wordSlots.length; i++) {
     wordSlots[i].textContent = inputWords[i].value;
   }
 }
 
 function showHideStory() {
-  var storyText = document.querySelector(story[chosenStory.value][1]);
+  let storyText = document.querySelector(story[chosenStory.value][1]);
 
   if (storyVisible) {
     storyText.classList.remove("hidden");
