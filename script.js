@@ -1,121 +1,53 @@
-let getStoryButton = document.querySelector("#getStory");
-let resetButton = document.querySelector("#reset");
-let getFormButton = document.querySelector("#getForm");
-let chooseAgain = document.querySelector("#chooseAgain");
+function madlibs() {
+  let player = prompt("Would you like Story One or Story Two?", "storyOne or storyTwo");
 
-let selectStory = document.querySelector("#selectStory");
-let storyForm = document.querySelector("#storyForm");
-let finshedStory = document.querySelector("#finishedStory");
+  while (true) {
+    if (!(player == "storyOne" || player == "storyTwo")) {
+      player = prompt("Would you like Story One or Story Two?", "storyOne or storyTwo");
+    }
+    else break;
+  }
 
-let inputs = document.querySelector("#storyForm div");
+  if(player == 'storyOne'){
+      let prompt1 = prompt("type an adjective");
+      let prompt2 = prompt("type a general place");
+      let prompt3 = prompt("type a vehicle name (plural)");
+      let prompt4 = prompt("type the name of a game");
+      let prompt5 = prompt("type a plural noun");
+      let prompt6 = prompt("type an 'ing' verb");
+      let prompt7 = prompt("type another 'ing' verb");
+      let prompt8 = prompt("type a food name (plural)");
+      let prompt9 = prompt("type the name of a sport");
+      let prompt10 = prompt("type another 'ing' verb");
+      let prompt11 = prompt("type an emotion");
+      let prompt12 = prompt("type a number");
 
-let chosenStory = document.querySelector("select");
+      let message = `A vacation is when you take a trip to some ${prompt1} place near an amazing ${prompt2}. A good vacation place is one where you can ride ${prompt3} or play ${prompt4} or go hunting for ${prompt5}. I like to spend my time ${prompt6} or ${prompt7}. When parents go on a vacation, they spend their time eating three ${prompt8} a day. Usually, fathers play ${prompt9}, and mothers spend their time ${prompt10}. Adults need vacations more than kids because adults are always very ${prompt11} because they have to work ${prompt12} hours every day all year just to afford their vacations!`;
+      alert(message);
 
-let storyVisible = false;
+  }
 
-let story = {
-  storyOne: [
-    [
-      "Adjective:",
-      "General Place:",
-      "Vehicle name (plural):",
-      "The Name of a Game:",
-      "Plural Noun:",
-      "An 'ing' Verb:",
-      "Another 'ing' Verb:",
-      "Food Name:",
-      "Name of a Sport:",
-      "Noun",
-      "Another 'ing' Verb",
-      "An emotion:",
-      "Number",
-    ],
-    "#storyOneText",
-    "#storyOne span"
-  ],
-  storyTwo: [
-    [
-      "Adjective:",
-      "Famous Name:",
-      "Plural Noun:",
-      "Another Adjective:",
-      "Food (plural):",
-      "Emotion:",
-      "An 'ing' Verb:",
-      "Common Place:",
-      "Another Adjective:",
-      "Noun:",
-      "Another Adjective:",
-      "Another Noun:",
-      "Family Member",
-      "Another Adjective:",
-    ],
-    "#storyTwoText",
-    "#storyTwo span"
-  ],
-};
+  if(player == 'storyTwo'){
+    let prompt1 = prompt("type an adjective");
+    let prompt2 = prompt("type a famous place");
+    let prompt3 = prompt("type a plural noun");
+    let prompt4 = prompt("type another adjective");
+    let prompt5 = prompt("type a food (plural)");
+    let prompt6 = prompt("type an emotion");
+    let prompt7 = prompt("type an 'ing' verb");
+    let prompt8 = prompt("type a common place");
+    let prompt9 = prompt("type another adjective");
+    let prompt10 = prompt("type a noun");
+    let prompt11 = prompt("type another adjective");
+    let prompt12 = prompt("type another noun");
+    let prompt13 = prompt("type a family member");
+    let prompt14 = prompt("type another adjective");
 
-
-getFormButton.addEventListener("click", function () {
-  makeForm();
-
-  selectStory.classList.add("hidden");
-  storyForm.classList.remove("hidden");
-});
-
-chooseAgain.addEventListener("click", function () {
-  selectStory.classList.remove("hidden");
-  storyForm.classList.add("hidden");
-
-  inputs.innerHTML = "";
-});
-
-
-getStoryButton.addEventListener("click", function () {
-  storyVisible = true;
-
-  makeStory();
-  showHideStory();
-});
-
-resetButton.addEventListener("click", function () {
-  storyVisible = false;
-
-  showHideStory();
-
-  inputs.innerHTML = "";
-});
-
-
-function makeForm() {
-  let storyChoice = story[chosenStory.value][0];
-
-  for (let i = 0; i < storyChoice.length; i++) {
-    inputs.innerHTML += "<label>" + storyChoice[i] + '<br><input type="text"></label>';
+    let message = `Today we took a ${prompt1} fieldtrip to ${prompt2}. They're famous for making ${prompt3} and for cooking ${prompt4} ${prompt5}. Eating all that food made me feel ${prompt6}. Next we enjoyed the local tradition of ${prompt7} in the middle of the ${prompt8}! Finally, we went shopping for souvenirs. I bought a ${prompt9} ${prompt10} for myself, and a ${prompt11} ${prompt12} for my favorite ${prompt13}. I'll definitely never forget this ${prompt14} trip!`;
+    alert(message);
   }
 }
 
-function makeStory() {
-  let wordSlots = document.querySelectorAll(story[chosenStory.value][2]);
-  let inputWords = document.querySelectorAll("input");
 
 
-  for (let i = 0; i < wordSlots.length; i++) {
-    wordSlots[i].textContent = inputWords[i].value;
-  }
-}
-
-function showHideStory() {
-  let storyText = document.querySelector(story[chosenStory.value][1]);
-
-  if (storyVisible) {
-    storyText.classList.remove("hidden");
-    finishedStory.classList.remove("hidden");
-    storyForm.classList.add("hidden");
-  }
-  else {
-    storyText.classList.add("hidden");
-    finishedStory.classList.add("hidden");
-    selectStory.classList.remove("hidden");
-  }
-}
+madlibs();
